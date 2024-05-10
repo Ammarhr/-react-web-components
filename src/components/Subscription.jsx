@@ -8,7 +8,7 @@ import {
   DrawerBody,
   DrawerFooter,
   DrawerHeader,
-  // DrawerOverlay,
+  DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   Input,
@@ -25,7 +25,9 @@ import {
 import { PinInput, PinInputField } from "@chakra-ui/react";
 
 import { CacheProvider } from "@emotion/react";
-import createCache from "@emotion/cache";
+// import createCache from "@emotion/cache";
+import MiUButton from '@mui/material/Button';
+
 
 // import theme from "./theme";
 // eslint-disable-next-line react/prop-types
@@ -41,7 +43,7 @@ const Subscription = ({ username, shouldDisplayMentions, value }) => {
         </ChakraProvider>
         {styles}
       </style> {/* // 👈 Import your styles */}
-      <div className="subscription">
+      <div id="#root" className="subscription">
         <h2 className="subscription__title">Subscription</h2>
         <p className="subscription__greeting">Hello {username}!</p>
 
@@ -71,7 +73,7 @@ const Subscription = ({ username, shouldDisplayMentions, value }) => {
             finalFocusRef={btnRef}
             size={"full"}
           >
-            {/* <DrawerOverlay /> */}
+            <DrawerOverlay />
             <DrawerContent>
               <DrawerCloseButton />
               <DrawerHeader>Create your account</DrawerHeader>
@@ -100,6 +102,7 @@ const Subscription = ({ username, shouldDisplayMentions, value }) => {
               <Button variant="ghost">Secondary Action</Button>
             </DrawerContent>
           </Drawer>
+
           {/* <Button onClick={onOpen}>Open Modal</Button>
 
         <Modal isOpen={isOpen} onClose={onClose}>
@@ -117,6 +120,7 @@ const Subscription = ({ username, shouldDisplayMentions, value }) => {
           </ModalContent>
         </Modal> */}
         </ChakraProvider>
+        <MiUButton >MUI</MiUButton>
       </CacheProvider>
     </>
   );

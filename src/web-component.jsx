@@ -1,8 +1,8 @@
 import ReactDOM from "react-dom/client";
 import Subscription from "./components/Subscription";
-// import { CacheProvider } from "@emotion/react";
+import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-// import { Button, ChakraBaseProvider } from "@chakra-ui/react";
+import { Button, ChakraProvider } from "@chakra-ui/react";
 // eslint-disable-next-line react-refresh/only-export-components
 export const normalizeAttribute = (attribute) => {
   return attribute.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
@@ -23,14 +23,15 @@ class SubscriptionWebComponent extends HTMLElement {
 
     const myCache = createCache({
       // @ts-ignore
-      container: this,
-      key: "c",
+      container: this.shadowRoot,
+      prepend: true,
+      key: "css",
     });
     // root.render(<Subscription {...props} />);
 
 
     root.render(
-      <Subscription  value={myCache} {...props}></Subscription>
+      <Subscription value={myCache} {...props}></Subscription>
     );
 
 
